@@ -21,6 +21,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    [self getFIG];
+    
+    _gifImageView = [[UIImageView alloc] init];
+    _gifImageView.backgroundColor = UIColor.grayColor;
+    [self.view addSubview:_gifImageView];
+    UIView* superView = self.view;
+    [_gifImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@(180));
+        make.center.equalTo(superView);
+    }];
+    
     _HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     /*
     /// UIActivityIndicatorView.
@@ -39,19 +52,6 @@
 
     _HUD.mode = MBProgressHUDModeIndeterminate;
     _HUD.label.text = @"loding";
-    
-    [self getFIG];
-    
-    _gifImageView = [[UIImageView alloc] init];
-    _gifImageView.backgroundColor = UIColor.grayColor;
-    [self.view addSubview:_gifImageView];
-    UIView* superView = self.view;
-    [_gifImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.equalTo(@(180));
-        make.center.equalTo(superView);
-    }];
-    
-    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
